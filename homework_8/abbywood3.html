@@ -1,0 +1,143 @@
+<html>
+    <title>My third page</title>
+    <header>
+        <span style="font-family: Arial, Helvetica, sans-serif; color:cadetblue;">My Third page</span>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styles/bootstrap-4.3.1/css/bootstrap.min.css">
+        <script src="./styles/bootstrap-4.3.1/js/jquery-3.4.1.min.js"></script>
+        <script src="./styles/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+
+        <script>
+            function getData()
+            {
+                var name = document.getElementById("txtName").value;
+                var name2 = document.getElementById("txtName2").value;
+                var phone = document.getElementById("txtPhone").value;
+                var email = document.getElementById("txtEmail").value;
+
+                document.getElementById("finalResult").innerHTML = "First Name: " + name + " phone: " + phone + "Last Name: " + name2 + " Email: " + email;
+            }
+        </script>
+        <script>
+            function runGame() {
+            for (var i = 1; i < 6; i++) {
+                document.getElementById("message").innerHTML += "<h" + i + ">Welcome to our game!!!</h" + i + "></p>";
+            }
+            printQuestion();
+        }
+        runGame();
+        </script>
+    </header>
+    <body>
+        <style>
+            span{
+                background-color: rgb(218, 219, 168);
+                color:tomato;
+            }
+        </style>
+
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" id="txtName"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" id="txtName2"></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><input type="text" id="txtPhone"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" id="txtEmail"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button id="btnSubmit" onClick="getData();">Submit</button></td>
+            </tr>
+        </table>
+        <div id="finalResult"></div>
+
+        <script>
+            var actualAnswer;
+        function printQuestion()
+        {
+            var number1 = Math.floor(Math.random() * 10);
+            var number2 = Math.floor(Math.random() * 10);
+            actualAnswer = number1 + number2;
+            document.getElementById("theQuestion").innerHTML = "What is " + number1 + "+" + number2 + "?";
+            
+        }
+        function checkAnswer()
+        {
+            var answer = document.getElementById("txtAnswer").value;
+            var numcorrect = 0;
+            if(answer == actualAnswer)
+            {
+                var numcorrect = numcorrect + 1;
+                document.getElementById("finalResult").innerHTML = "Good job! You have " + numcorrect +" correct so far!";
+                
+            }
+            else
+            {
+                document.getElementById("finalResult").innerHTML = "Not quite!";
+            }
+        
+        }
+        </script>
+        <body onload="printQuestion();">
+            <div id="theQuestion"></div>
+                 <table>
+                    <tr>
+                        <td>Your answer</td>
+                        <td><input type="text" id="txtAnswer"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button id="btnSubmit" onClick="checkAnswer();">Submit</button></td>
+                    </tr>
+                </table>
+            <div id="finalResult"></div>
+
+
+            
+
+
+
+
+        <form action="abbywood.html" type="Post">
+            <button id="mySubmit" type="submit">Home</button>
+
+
+        
+    </body>
+    <body onload="runGame();">
+
+    <table>
+        <tr>
+            <td colspan="2">
+                <div id="message"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr size="1">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="theQuestion"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Your answer</td>
+            <td><input type="text" id="txtAnswer"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button id="btnSubmit" onClick="checkAnswer();">Submit</button></td>
+        </tr>
+    </table>
+    <div id="finalResult"></div>
+    </body>
+</html>
